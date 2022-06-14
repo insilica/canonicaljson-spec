@@ -18,6 +18,7 @@ This specification defines a unique canonical form for **every** JSON value, the
   * [v1.0.0 (2017-10-17)](#v100-2017-10-17)
   * [v1.0.1 (2018-07-01)](#v101-2018-07-01)
   * [v1.0.2 (2019-04-14)](#v102-2019-04-14)
+  * [v2.0.0 (2022-06-14)](#v200-2022-06-14)
 
 <!-- tocstop -->
 
@@ -33,6 +34,7 @@ JSON text in canonical form:
      2. without a decimal point, and
      3. without an exponent, and
      4. without insignificant leading zeroes (as already required of all JSON numbers)
+     5. integer numbers with 30 or more trailing zeroes MUST be represented in the same way as non-integer numbers
   5. MUST represent all non-integer numbers in exponential notation
      1. including a nonzero single-digit significand integer part, and
      2. including a nonempty significand fractional part, and
@@ -100,3 +102,7 @@ But where they overlap, this specification generalizes OLPC "Canonical JSON" to 
 ### v1.0.2 (2019-04-14)
 
 * Explicitly mentioned the prohibition of insignificant leading zeroes from [RFC 7159](https://tools.ietf.org/html/rfc8259#section-6).
+
+### v2.0.0 (2022-06-14)
+
+* Update integer representation to protect against [assymetric attack via integer expansion](https://github.com/simon-greatrix/CanonicalJson#asymmetric-attack-via-integer-expansion)
